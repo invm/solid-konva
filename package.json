@@ -1,32 +1,33 @@
 {
   "name": "solid-konva",
-  "version": "0.1.6",
+  "version": "0.1.0",
   "description": "Solid.js bindings for Konva.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lawrencecchen/solid-konva.git"
+    "url": "https://github.com/invm/solid-konva.git"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "update-deps": "pnpm up -Li"
   },
   "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.3.3",
-    "@types/node": "^18.0.6",
-    "@unocss/preset-mini": "^0.44.2",
-    "@unocss/vite": "^0.44.2",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4",
-    "vite": "^3.0.0",
-    "vite-plugin-solid": "^2.3.0"
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@types/node": "^20.12.11",
+    "@unocss/preset-mini": "^0.59.4",
+    "@unocss/vite": "^0.59.4",
+    "tslib": "^2.6.2",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vite-plugin-solid": "^2.10.2"
   },
   "dependencies": {
-    "@solid-primitives/resize-observer": "^2.0.2",
-    "@unocss/reset": "^0.44.5",
-    "konva": "^8.3.10",
-    "solid-js": "^1.4.7"
+    "@solid-primitives/resize-observer": "^2.0.25",
+    "@unocss/reset": "^0.59.4",
+    "konva": "^9.3.6",
+    "solid-js": "^1.8.17"
   },
   "type": "module",
   "files": [
@@ -41,5 +42,5 @@
     }
   },
   "types": "./dist/index.d.ts",
-  "author": "Lawrence Chen"
+  "author": "Original author is Lawrence Chen over at https://github.com/lawrencecchen/"
 }
