@@ -14,7 +14,7 @@ import {
 import type { JSX } from "solid-js/jsx-runtime";
 import { KonvaEvents, TransformerEvents } from "./types";
 
-function createStage(props: Omit<StageConfig, "container">) {
+export function createStage(props: Omit<StageConfig, "container">) {
   const [containerRef, setContainerRef] = createSignal<HTMLDivElement>();
   const size = createElementSize(containerRef);
   const [stage, setStage] = createSignal<KStage>();
@@ -26,7 +26,7 @@ function createStage(props: Omit<StageConfig, "container">) {
         width: size.height,
         container: containerRef(),
         ...props,
-      })
+      }),
     );
   });
 
@@ -49,33 +49,19 @@ function createStage(props: Omit<StageConfig, "container">) {
   };
 }
 
-const StageContext = createContext<ReturnType<typeof createStage>>(null);
-export function StageContextProvider(props: {
-  children: JSX.Element;
-  stageProps: ReturnType<typeof createStage>;
-}) {
-  return (
-    <StageContext.Provider value={props.stageProps}>
-      {props.children}
-    </StageContext.Provider>
-  );
-}
-export function useStage() {
-  const stage = useContext(StageContext);
-  return stage;
-}
-
+export const StageContext = createContext<ReturnType<typeof createStage>>(null);
+export const useStage = () => useContext(StageContext);
 export function Stage(
-  props: JSX.HTMLAttributes<HTMLDivElement> & Omit<StageConfig, "container">
+  props: JSX.HTMLAttributes<HTMLDivElement> & Omit<StageConfig, "container">,
 ) {
   const stageProps = createStage({ ...props });
 
   return (
-    <div ref={stageProps.ref} {...props}>
-      <StageContextProvider stageProps={stageProps}>
+    <StageContext.Provider value={stageProps}>
+      <div ref={stageProps.ref} {...props}>
         {props.children}
-      </StageContextProvider>
-    </div>
+      </div>
+    </StageContext.Provider>
   );
 }
 

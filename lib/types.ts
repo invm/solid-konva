@@ -32,7 +32,9 @@ export interface KonvaEvents {
   // drag events
   onDragStart?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
   onDragMove?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
+  onDragOver?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
   onDragEnd?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
+  onDrop?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
 
   // all events in lowercase
   onmouseover?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
@@ -61,7 +63,9 @@ export interface KonvaEvents {
   onpointerdblclick?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
   ondragstart?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
   ondragmove?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
+  ondragover?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
   ondragend?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
+  ondrop?: (e: Konva.KonvaEventObject<Konva.Shape>) => void;
 }
 
 export interface TransformerEvents {
